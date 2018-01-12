@@ -1,0 +1,613 @@
+@import "color.scss";
+@import "tag-wap.scss";
+
+// body{
+// 	color: $color-black-3;
+// 	font-family: $family-font;
+// }
+@mixin max-screen($res){
+    @media only screen and (max-width: $res)
+    {
+        @content;
+    }
+}
+@mixin min-screen($res){
+    @media only screen and (min-width: $res)
+    {
+        @content;
+    }
+}
+@mixin load-more {
+    .feed-loading {
+        background-color: $color-grey-5;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        position: relative;
+        margin-top: 10px;
+        top: -10px;
+        border-bottom: 1px solid $color-grey-1;
+        text-align: center;
+
+        .loading-icon {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+
+        }
+        .loading-txt {
+            height: 25px;
+            line-height: 25px;
+            font-size: 14px;
+            color: $color-grey;
+            letter-spacing: 0px;
+        }
+
+        .loading-txt.btn-loadmore {
+            color: $color-black-9;
+        }
+    }
+}
+@mixin global-tag-hollow {
+    @include tag-hollow (14px, 12px, $color-black-9, $color-grey-2);
+}
+// 公共模块头部
+@mixin module-header-left ($icon-module) {
+    .global-header {
+        position: relative;
+        padding: 13px 10px 8px;
+        border-bottom: 1px solid $color-grey-3;
+        background-color: $color-white;
+
+        .header-l {
+            float: left;
+
+            .header-l-icon {
+                display: inline-block;
+                margin-right: 5px;
+                width: 18px;
+                height: 18px;
+                background: url($icon-module);
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            .header-l-text {
+                position: relative;
+                bottom: 3px;
+                font-size: 18px;
+                font-weight: bold;
+                color: $color-black-3;
+            }
+        }
+    }
+}
+@mixin module-header ($icon-module, $icon-more) {
+    .global-header {
+        position: relative;
+        padding: 13px 10px 8px;
+        border-bottom: 1px solid $color-grey-3;
+        background-color: $color-white;
+
+        .header-l {
+            float: left;
+
+            .header-l-icon {
+                display: inline-block;
+                margin-right: 5px;
+                width: 18px;
+                height: 18px;
+                background: url($icon-module);
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            .header-l-text {
+                position: relative;
+                bottom: 3px;
+                font-size: 18px;
+                font-weight: bold;
+                color: $color-black-3;
+            }
+        }
+        .header-r {
+            position: absolute;
+            right: 0;
+
+            .header-r-link {
+                padding: 15px 12px;
+
+                .header-r-text {
+                    position: relative;
+                    right: 3px;
+                    bottom: 1px;
+                    font-size: 16px;
+                    color: $color-black-6;
+                }
+                .header-r-icon {
+                    display: inline-block;
+                    width: 7px;
+                    height: 12.5px;
+                    background: url($icon-more);
+                    background-size: 100%;
+                }
+            }
+        }
+    }
+}
+
+@mixin abroad-module-header($padding-top, $padding-bottom) {
+    .abroad-module-header {
+        position: relative;
+        padding: $padding-top 15px $padding-bottom;
+        box-sizing: border-box;
+        font-size: 0;
+
+        .title {
+            position: relative;
+            height: 30px;
+            line-height: 30px;
+            font-size: 20px;
+            color: #333;
+        }
+        
+        .btn-more {
+            display: block;
+            position: absolute;
+            right: 15px;
+            top: 20px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 0;
+            color: #aaa;
+
+            .btn-more-txt {
+                display: inline-block;
+                font-size: 14px;
+            }
+            .icon-arrow {
+                margin-left: 3px;
+                display: inline-block;
+                font-size: 12px;
+            }
+        }
+    }
+}
+@mixin layout-400 {
+    .mask-layer {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 150%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9990;
+    }
+
+    .pop-layer {
+        display: none;
+        position: fixed;
+        top: 150px;
+        left: 50%;
+        margin-left: -135px;
+        width: 270px;
+        background: $color-white;
+        border-radius: 10px;
+        z-index: 9991;
+
+        .pop-con {
+            padding-top: 17px;
+
+            .ext, .tip {
+                text-align: center;
+            }
+
+            .ext {
+                font-size: 18px;
+                line-height: 36px;
+                color: $color-black-3;
+            }
+
+            .tip {
+                font-size: 14px;
+                line-height: 18px;
+                color: $color-black-3;
+            }
+        }
+
+        .pop-btn {
+            position: relative;
+            margin: 5px auto 0;
+            width: 270px;
+            border-top: 1px solid $color-grey-3;
+
+            .cancel-btn, .call-btn {
+                display: block;
+                float: left;
+                width: 50%;
+                height: 43px;
+                line-height: 43px;
+                text-align: center;
+                font-size: 16px;
+                color: $color-black-6;
+            }
+
+            .call-btn {
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: $color-red;
+                border-left: 1px solid $color-grey-3;
+            }
+        }
+    }
+}
+// 没有内容
+@mixin no-content-tips ($img-url, $background-color) {
+    .no-content-container {
+        padding-top: 25px;
+        height: 152px;
+        box-sizing: border-box;
+        background-color: $background-color;
+        border-bottom: 1px solid $color-grey-3;
+
+        .no-content-alert {
+            height: 50px;
+            background: url($img-url) center center no-repeat;
+            background-size: 58px 50px;
+        }
+        .no-content-tips1 {
+            margin-top: 15px;
+            height: 16px;
+            line-height: 16px;
+            font-size: 16px;
+            color: $color-grey;
+            text-align: center;
+        }
+        .no-content-tips2 {
+            margin-top: 9px;
+            height: 12px;
+            line-height: 12px;
+            font-size: 12px;
+            color: $color-grey;
+            text-align: center;
+        }
+    }
+}
+// 细边框 .hairline
+@mixin hairline-transform ($border-top, $border-right, $border-bottom, $border-left, $border-radius) {
+    &.hairline {
+        // position: relative;
+        border: none;
+
+        &::after {
+            // 单条线
+            // content: '';
+            // position: absolute;
+            // left: 0;
+            // bottom: 0;
+            // background: #ddd;
+            // width: 100%;
+            // height: 1px;
+            // transform: scaleY(0.5);
+            // transform-origin: 0 0;
+            
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border-top: $border-top;
+            border-right: $border-right;
+            border-bottom: $border-bottom;
+            border-left: $border-left;
+            border-radius: $border-radius;
+            pointer-events: none;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+        @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+            &::after {
+                width: 200%;
+                height: 200%;
+                -webkit-transform: scale(.5);
+                transform: scale(.5);
+            }
+        }
+        @media (-webkit-device-pixel-ratio: 1.5) {
+            &::after {
+                width: 150%;
+                height: 150%;
+                -webkit-transform: scale(.6666);
+                transform: scale(.6666);
+            }
+        }
+        @media (-webkit-device-pixel-ratio: 3) {
+            &::after {
+                width: 300%;
+                height: 300%;
+                -webkit-transform: scale(.3333);
+                transform: scale(.3333);
+            }
+        }
+    }
+}
+
+/// 通过before，after实现的1px边框-4个边
+/// @param {Color} $color [#D5D5D5] - 色值
+@mixin m-r1b($color:#D5D5D5, $radius:0){
+    position:relative;
+    &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $color;
+        pointer-events:none;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        @if $radius!=0{
+            border-radius: $radius;
+            -webkit-border-radius: $radius;
+        }
+    }
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+        &::after{
+            width: 200%;
+            height: 200%;
+            -webkit-transform: scale(.5);
+            transform: scale(.5);
+        }
+    }
+    @media (-webkit-device-pixel-ratio: 1.5) {
+        &::after {
+            width: 150%;
+            height: 150%;
+            -webkit-transform: scale(.6666);
+            transform: scale(.6666);
+        }
+    }
+    @media (-webkit-device-pixel-ratio: 3) {
+        &::after {
+            width: 300%;
+            height: 300%;
+            -webkit-transform: scale(.3333);
+            transform: scale(.3333);
+        }
+    }
+  }
+  /// 通过before，after实现的1px边框-左边
+  /// @param {Color} $color [#D5D5D5] - 色值
+  @mixin m-r1bl($color:#D5D5D5){
+      position:relative;
+      &::before {
+          pointer-events:none;
+          position: absolute;
+          content: "";
+          width: 1px;
+          background: $color;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+      }
+      @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+          &::before{
+              -webkit-transform: scaleX(.5);
+              transform: scaleX(.5);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 1.5) {
+          &::before {
+              -webkit-transform: scaleX(.6666);
+              transform: scaleX(.6666);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 3) {
+          &::before {
+              -webkit-transform: scaleX(.3333);
+              transform: scaleX(.3333);
+          }
+      }
+  }
+  /// 通过before，after实现的1px边框-右边
+  /// @param {Color} $color [#D5D5D5] - 色值
+  @mixin m-r1br($color:#D5D5D5){
+      position:relative;
+      &::after {
+          pointer-events:none;
+          position: absolute;
+          content: "";
+          width: 1px;
+          background: $color;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+      }
+      @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+          &::after{
+              -webkit-transform: scaleX(.5);
+              transform: scaleX(.5);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 1.5) {
+          &::after {
+              -webkit-transform: scaleX(.6666);
+              transform: scaleX(.6666);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 3) {
+          &::after {
+              -webkit-transform: scaleX(.3333);
+              transform: scaleX(.3333);
+          }
+      }
+  }
+  /// 通过before，after实现的1px边框-上边
+  /// @param {Color} $color [#D5D5D5] - 色值
+  @mixin m-r1bt($color:#D5D5D5){
+      position:relative;
+      &::before {
+          pointer-events:none;
+          position: absolute;
+          content: "";
+          height: 1px;
+          background: $color;
+          left: 0;
+          right: 0;
+          top:0;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+      }
+      @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+          &::before{
+              -webkit-transform: scaleY(.5);
+              transform: scaleY(.5);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 1.5) {
+          &::before {
+              -webkit-transform: scaleY(.6666);
+              transform: scaleY(.6666);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 3) {
+          &::before {
+              -webkit-transform: scaleY(.3333);
+              transform: scaleY(.3333);
+          }
+      }
+  }
+  /// 通过before，after实现的1px边框-下边
+  /// @param {Color} $color [#D5D5D5] - 色值
+  @mixin m-r1bb($color:#D5D5D5){
+      position:relative;
+      &::after {
+          pointer-events:none;
+          position: absolute;
+          content: "";
+          height: 1px;
+          background: $color;
+          left: 0;
+          right: 0;
+          bottom:0;
+          -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+      }
+      @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+          &::after{
+              -webkit-transform: scaleY(.5);
+              transform: scaleY(.5);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 1.5) {
+          &::after {
+              -webkit-transform: scaleY(.6666);
+              transform: scaleY(.6666);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 3) {
+          &::after {
+              -webkit-transform: scaleY(.3333);
+              transform: scaleY(.3333);
+          }
+      }
+  }
+  /// 通过before，after实现的1px边框- 上右下左四个边颜色配置
+  /// @param {tColor} $color [#D5D5D5] - 上边色值
+  /// @param {rColor} $color [#D5D5D5] - 右边色值
+  /// @param {bColor} $color [#D5D5D5] - 下边色值
+  /// @param {lColor} $color [#D5D5D5] - 左边色值
+  @mixin m-r1b-trbl($tColor:#D5D5D5, $rColor:#D5D5D5, $bColor:#D5D5D5, $lColor:#D5D5D5, $radius:0){
+      position:relative;
+      &::after {
+          position: absolute;
+          content: "";
+          top: 0;
+          left: 0;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+          border-style: solid;
+          border-width: 1px;
+          border-color: $tColor $rColor $bColor $lColor;
+          pointer-events:none;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          @if $radius!=0{
+              border-radius: $radius;
+              -webkit-border-radius: $radius;
+          }
+      }
+      @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+          &::after{
+              width: 200%;
+              height: 200%;
+              -webkit-transform: scale(.5);
+              transform: scale(.5);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 1.5) {
+          &::after {
+              width: 150%;
+              height: 150%;
+              -webkit-transform: scale(.6666);
+              transform: scale(.6666);
+          }
+      }
+      @media (-webkit-device-pixel-ratio: 3) {
+          &::after {
+              width: 300%;
+              height: 300%;
+              -webkit-transform: scale(.3333);
+              transform: scale(.3333);
+          }
+      }
+  }
+  /// 通过background-image实现的1px边框-上边
+  /// @param {Color} $color [#D5D5D5] - 边框颜色
+  /// @param {Color} $bgColor [透明] - 背景颜色
+  @mixin m-r1bt-bg($color:#D5D5D5, $bgColor:transparent){
+      background:$bgColor -webkit-linear-gradient(top, $color, $color 50%, transparent 50%, transparent 100%) left top no-repeat;
+      -webkit-background-size: 100% 1px;
+  }
+  /// 通过background-image实现的1px边框-下边
+  /// @param {Color} $color [#D5D5D5] - 边框颜色
+  /// @param {Color} $bgColor [透明] - 背景颜色
+  @mixin m-r1bb-bg($color:#D5D5D5, $bgColor:transparent){
+      background:$bgColor -webkit-linear-gradient(bottom, $color, $color 50%, transparent 50%, transparent 100%) left bottom no-repeat;
+      -webkit-background-size: 100% 1px;
+  }
+  /// 通过background-image实现的1px边框-左边
+  /// @param {Color} $color [#D5D5D5] - 边框颜色
+  /// @param {Color} $bgColor [透明] - 背景颜色
+  @mixin m-r1bl-bg($color:#D5D5D5, $bgColor:transparent){
+      background:$bgColor -webkit-linear-gradient(left, $color, $color 50%, transparent 50%, transparent 100%) left top no-repeat;
+      -webkit-background-size: 1px 100%;
+  }
+  /// 通过background-image实现的1px边框-右边
+  /// @param {Color} $color [#D5D5D5] - 边框颜色
+  /// @param {Color} $bgColor [透明] - 背景颜色
+  @mixin m-r1br-bg($color:#D5D5D5, $bgColor:transparent){
+      background:$bgColor -webkit-linear-gradient(right, $color, $color 50%, transparent 50%, transparent 100%) right top no-repeat;
+      -webkit-background-size: 1px 100%;
+  }
+  /// 通过background-image实现的1px边框-4边
+  /// @param {Color} $color [#D5D5D5] - 边框颜色
+  /// @param {Color} $bgColor [透明] - 背景颜色
+  @mixin m-r1b-bg($color:#D5D5D5, $bgColor:transparent){
+      background-color:$bgColor;
+      background-image: -webkit-linear-gradient(top, $color, $color 50%, transparent 50%, transparent 100%), -webkit-linear-gradient(right, $color, $color 50%, transparent 50%, transparent 100%), -webkit-linear-gradient(bottom, $color, $color 50%, transparent 50%, transparent 100%), -webkit-linear-gradient(left, $color, $color 50%, transparent 50%, transparent 100%);
+      background-size: 100% 1px, 1px 100%;
+      background-repeat: no-repeat;
+      background-position: top, right top, bottom, left top;
+  }
