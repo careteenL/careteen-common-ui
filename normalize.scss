@@ -3,11 +3,13 @@
 /**
  *
  * @desc 主入口文件
- * @author careteen
+ * @created by careteen on 2018-01-11
+ * @recentUpdate by careteen on 2018-01-16
  * @version 1.0.0
- * @time 2018-01-11
  */
- 
+
+@import "./core/_global.scss";
 @import "./core/_reset.scss";
+
 @import "./core/_base.scss";
 @import "./core/_mixin.scss";

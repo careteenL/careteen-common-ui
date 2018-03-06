@@ -9,6 +9,24 @@
  * @created by careteen on 2018-01-11
  * @recentUpdate by careteen on 2018-01-11
  */
+// -----------------------------------------
+//                 变量 start
+// -----------------------------------------
+
+/**
+ *
+ * @desc 变量
+ *
+ */
+$imgPath: './../../assets/common-ui/img';
+
+// -----------------------------------------
+//                    变量 end
+// -----------------------------------------
+
+// -----------------------------------------
+//             placeholder选择器 start
+// -----------------------------------------
 
 /**
  *
@@ -36,6 +54,14 @@
     white-space: nowrap;
 }
 
+// -----------------------------------------
+//              placeholder选择器 end
+// -----------------------------------------
+
+// -----------------------------------------
+//                  mixin start
+// -----------------------------------------
+
 /**
  *
  * @desc 多行文本溢出展示...
@@ -53,6 +79,23 @@
         overflow: hidden;
         -webkit-line-clamp: $lineCount;
     }
+}
+
+/**
+ *
+ * @desc 背景图片
+ * @param {String} $img
+ */
+@mixin bg ($img, $left: 0, $top: 0, $size: contain, $repeat: no-repeat, $pos: false) {
+    background-image: url(#{$imgPath}/#{$img});
+    @if $pos {
+        background-position: #{$pos}
+    }
+    @else {
+        background-position: $left $top;
+    }
+    background-repeat: $repeat;
+    background-size: $size;
 }
 
 /**
@@ -248,3 +291,29 @@
 @mixin m-1px-all-same($border-color: transparent, $radius: 0) {
     @include m-1px-all($border-color, $border-color, $border-color, $border-color, $radius);
 }
+
+// -----------------------------------------
+//                  mixin end
+// -----------------------------------------
+
+// -----------------------------------------
+//                  keyframes start
+// -----------------------------------------
+
+/**
+ *
+ * @desc loading 动画
+ * @example animation: ani-loading 0.9s linear infinite;
+ */
+@keyframes ani-loading {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+// -----------------------------------------
+//                  keyframes end
+// -----------------------------------------
